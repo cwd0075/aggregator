@@ -8,8 +8,8 @@ server.route({
   method: 'GET',
   path: '/dates/{timestamp}',
   handler: async (req, reply) => {
-    const utcEndpoint = `http://isodate-service:3000/${req.params.timestamp}/utcdate`
-    const isoEndpoint = `http://utcdate-service:3001/${req.params.timestamp}/isodate`
+    const utcEndpoint = `http://isodate-service:3000/${req.params.timestamp}/isodate`
+    const isoEndpoint = `http://utcdate-service:3001/${req.params.timestamp}/utcdate`
     let utcBody = await request(utcEndpoint)
     let isoBody = await request(isoEndpoint)
     reply({
